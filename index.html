@@ -63,6 +63,10 @@
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">文章</a>
     			
             
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			
+            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
@@ -142,12 +146,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Hexo是什么"><a href="#Hexo是什么" class="headerlink" title="Hexo是什么"></a>Hexo是什么</h3><pre><code>Hexo是一个博客框架，可以用来搭建自己的博客，再加上github pages就可以在外网上面发布自己的博客，关键是这个都是免费的。Hexo的内容需要使用Markdown来书写。 Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。</code></pre><h3 id="Hexo环境搭建（Mac系统）"><a href="#Hexo环境搭建（Mac系统）" class="headerlink" title="Hexo环境搭建（Mac系统）"></a>Hexo环境搭建（Mac系统）</h3><pre><code>1. 安装node.js
+        <h3 id="Hexo是什么"><a href="#Hexo是什么" class="headerlink" title="Hexo是什么"></a>Hexo是什么</h3><pre><code>Hexo是一个博客框架，可以用来搭建自己的博客，再加上github pages就可以在外网上面发布自己的博客，关键是这个都是免费的。Hexo的内容需要使用Markdown来书写。 Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。</code></pre><h3 id="Hexo环境搭建"><a href="#Hexo环境搭建" class="headerlink" title="Hexo环境搭建"></a>Hexo环境搭建</h3><pre><code>1. 安装node.js
 2. 安装git
 3. 安装hexo
-    npm install -g hexo-cli</code></pre><h3 id="使用Hexo建站"><a href="#使用Hexo建站" class="headerlink" title="使用Hexo建站"></a>使用Hexo建站</h3><pre><code>1. 打开终端进入到你想要把站点放入的目录中，执行下面的指令,第三个参数是目录名称
+   sudo npm install -g hexo-cli</code></pre><h3 id="Hexo建站"><a href="#Hexo建站" class="headerlink" title="Hexo建站"></a>Hexo建站</h3><pre><code>1. 打开终端进入到你想要把站点放入的目录中，执行下面的指令,第三个参数是目录名称
 hexo init &lt;folder&gt;
- 1 2 3 4 5</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#incldue<span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+2. 进入到刚才创建的目录，执行
+npm install
+最后有提示需要执行以下npm audit fix
+3. 安装图片插件，并且将_config.yml的post_asset_folder设置为true
+npm install hexo-asset-image --save
+4. 安装git插件，
+    npm install hexo-deployer-git --save
+    并且配置你的博客的发布地址,repo的地址格式一定要是如下的格式，
+    deploy:
+          type: git
+          repo: https://github.com/yourName/yourName.github.io.git
+          branch: master</code></pre><h3 id="Hexo写作"><a href="#Hexo写作" class="headerlink" title="Hexo写作"></a>Hexo写作</h3><pre><code>1. 创建一个文章
+hexo new &lt;title&gt;
+2. 在source/_posts/下面会有一个&lt;title&gt;.md和&lt;title&gt;的文件夹，这个文件夹就是放图片的。
+3. 执行
+hexo clean
+hexo generate
+hexo server
+4. 在浏览器中输入http://localhost:4000，就能看到了
+5. 执行</code></pre>
       
 
       
@@ -239,13 +262,21 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">文章</a></li>
+      
+        
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于</a></li>
       
         
     </ul>
@@ -310,6 +341,12 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
 
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">生活不能等待别人来安排，&lt;br&gt; 要自己去争取和奋斗；&lt;br&gt; 而不论其结果是喜是悲，&lt;br&gt; 但可以慰藉的是，&lt;br&gt; 你总不枉在这世界上活了一场。&lt;br&gt; 有了这样的认识，&lt;br&gt; 你就会珍重生活，&lt;br&gt; 而不会玩世不恭；&lt;br&gt; 同时，&lt;br&gt; 也会给人自身注入一种强大的内在力量。&lt;br&gt;</div>
+  	  	
+    	</section>
     
   </div>
   
