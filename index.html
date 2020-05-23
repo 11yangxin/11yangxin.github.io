@@ -126,6 +126,224 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Shell教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/23/Shell%E6%95%99%E7%A8%8B/">Linux命令行与shell脚本编程大全笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/23/Shell%E6%95%99%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-05-23T03:27:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="第1章-初识Linux-shell"><a href="#第1章-初识Linux-shell" class="headerlink" title="第1章 初识Linux shell"></a>第1章 初识Linux shell</h3><h3 id="第2章-走进shell"><a href="#第2章-走进shell" class="headerlink" title="第2章 走进shell"></a>第2章 走进shell</h3><h3 id="第3章-基本的bash-shell命令"><a href="#第3章-基本的bash-shell命令" class="headerlink" title="第3章 基本的bash shell命令"></a>第3章 基本的bash shell命令</h3><pre><code>1. cd 路径  路径可以是绝对路径，也可以是相对路径，单点符号表示当前目录 双点符号表示当前目录的父目录
+2. pwd 显示当前工作目录的路径
+3. ls 列出当前目录下的文件和文件夹
+    -F 可以用来区分文件和目录 目录会在最后面带上/
+    -a 会显示隐藏的文件
+    -R 递归显示
+    -l 长列表显示  
+        长列表会显示 文件类型（目录b  文件- 字符型文件c  块设备b） 文件的权限   文件的硬连接总数  文件的属主用户名  文件的属组名  文件的大小  文件的上次修改时间   文件名或目录名 
+        ls -l  名字    那么会显示这个文件或者文件夹的详情
+4. touch test_one  创建空文件
+5. cp source destination 复制文件
+    -i  询问是否覆盖文件
+    -R  递归复制  能复制文件夹下所有文件
+6. ln -s  data_file sl_data_file 连接文件
+7. mv 移动或者重命名
+8. rm 删除文件或目录
+    -f 强制删除 小心使用
+    -i 询问是否删除 需要自己输入y
+    -r 递归删除
+9. mkdir 创建目录
+    -p 创建多层的目录
+10. rmdir 删除空目录
+11. file 查看文件类型
+12. cat 查看文件内容
+    -n  给所有都添加行号
+    -b  给文本添加行业 也就是空行没有
+    -T  去掉文本中的制表符
+13. more 显示一页停下 
+14. less more的更高级  显示一页   支持上下和翻页
+15. tail 显示文最后的部分
+    -n 要显示的行数
+    -f 别的进程在使用的时候  也能查看  能看到实时增加的
+16. head 显示文件的开头部分</code></pre><h3 id="第4章-更多的bash-shell"><a href="#第4章-更多的bash-shell" class="headerlink" title="第4章 更多的bash shell"></a>第4章 更多的bash shell</h3><pre><code>1. ps 探查进程 PID进程号 TIY终端   TIME CMD cpu时间
+    -ef 查看系统上运行的所有进程
+2. kill 结束进程
+3. killall 名字
+4. mount 输出当前系统挂载的设备
+    mount -t type device directory 手动挂载媒体设备
+    type(vfat ntfs iso9660)
+5. df 显示已经挂载的磁盘的使用情况
+6. du 显示某个目录的磁盘使用情况
+7. sort 排序
+    -n 默认按字符排序  -n可以使用数字排序
+    -M 按月排序
+    -r 降序输出
+8. grep 查找
+    grep pattern file
+    -v 反向搜索
+    -n 匹配到的显示  增加行号
+    -c 有多少行符合
+9. gzip 压缩数据
+    gzcat 用来查看压缩过的文本文件的内容
+    gunzip 用来解压缩
+10. tar 归档数据
+    tar function object1 object2
+        function( -A 追加 -c 创建 )
+    tar -cvf test.tar test/ test2/ 打包
+    tar -xvf test.tar 查看包的内容</code></pre><h3 id="第5章-理解shell"><a href="#第5章-理解shell" class="headerlink" title="第5章   理解shell"></a>第5章   理解shell</h3><pre><code>1. which type 可以找到命令的文件所在目录
+    which ps
+    type -a ps
+2. history   查看命令历史记录</code></pre><h3 id="第6章-使用Linux环境变量"><a href="#第6章-使用Linux环境变量" class="headerlink" title="第6章 使用Linux环境变量"></a>第6章 使用Linux环境变量</h3><pre><code>1. printenv 查看全局环境变量
+   printenv HOME</code></pre><h3 id="第11章-构建基本脚本"><a href="#第11章-构建基本脚本" class="headerlink" title="第11章 构建基本脚本"></a>第11章 构建基本脚本</h3><pre><code>1. date 时间
+2. who  谁登陆
+3. echo 输出信息
+4. ` $() 将命令输出赋给变量
+    testing =  `date`
+    testing = $(date)
+5. &gt; 输出重定向
+   date &gt; test6
+    &gt;&gt; 输出重定向并且是追加
+6. &lt; 输入重定向
+   &lt;&lt;  内联输入重定向符号
+7. | 管道
+8. expor 表达式  执行数学计算
+    有些符号可能需要转义
+9. $[] 将表达式的值
+10. bc 能够识别 数字 变量  注释  表达式  编程语句  函数</code></pre><h3 id="第12章-使用结构化命令"><a href="#第12章-使用结构化命令" class="headerlink" title="第12章 使用结构化命令"></a>第12章 使用结构化命令</h3><pre><code>1. if 语句3中形式
+   if command; then
+   fi
+
+   if command; then
+   else
+   fi
+
+   if command; then
+   elif comand; then
+   fi
+2. -eq 相等
+    -ge 大于或等于
+    -gt 大于
+    -le 小于或等于
+    -lt 小于
+    -ne 不等于
+3. 字符串比较
+    =
+    !=
+    &lt;
+    &gt;
+    -n 长度是否非0
+    -z 长度是否为0
+4. 文件比较
+    -d file  file是否存在并且是目录
+    -e file  file是否存在
+    -f file  file是否存在并且是文件
+    -r file  file是否可以读
+    -s file  file是否存在并且非空
+    -w file  file是否存在并且可写
+5. &amp;&amp; || 复合条件
+6. ((expression))
+    ++ -- ! ~ ** &lt;&lt; &gt;&gt; &amp; |  &amp;&amp; ||
+7. case 
+        case $USER in
+        rich | barbarn)
+            echo &quot;&quot;;;
+        testing)
+            echo &quot;&quot;;;
+        *)
+            echo &quot;&quot;;;
+        esac</code></pre><h3 id="第13章-更多的结构化命令"><a href="#第13章-更多的结构化命令" class="headerlink" title="第13章 更多的结构化命令"></a>第13章 更多的结构化命令</h3><pre><code>1. for
+    for var in list
+    do
+    done
+
+    for((i=0;i&lt;10;i++))
+    do
+    done
+2. while
+    while test command
+    do
+    done
+3. break n 跳出多重循环
+4. $# 参数个数
+   参数下标是从0开发的</code></pre><h3 id="第15章-呈现数据"><a href="#第15章-呈现数据" class="headerlink" title="第15章  呈现数据"></a>第15章  呈现数据</h3><h3 id="第16章-控制脚本"><a href="#第16章-控制脚本" class="headerlink" title="第16章  控制脚本"></a>第16章  控制脚本</h3><h3 id="第17章-创建函数"><a href="#第17章-创建函数" class="headerlink" title="第17章  创建函数"></a>第17章  创建函数</h3><pre><code>1. 创建函数
+    function name{
+        commands
+    }
+    name(){
+        commands
+    }
+2. 传递参数
+    #!/bin/bash
+    function func7 {
+        echo $[ $1 * $2]
+    }
+    value=$(func7 $1 $2)
+    echo &quot;the reuslt is $value&quot;</code></pre><h3 id="第18章-图形化桌面环境中的脚本编程"><a href="#第18章-图形化桌面环境中的脚本编程" class="headerlink" title="第18章 图形化桌面环境中的脚本编程"></a>第18章 图形化桌面环境中的脚本编程</h3><h3 id="第19章-初识sed和gawk"><a href="#第19章-初识sed和gawk" class="headerlink" title="第19章 初识sed和gawk"></a>第19章 初识sed和gawk</h3><h3 id="第20章-正则表达式"><a href="#第20章-正则表达式" class="headerlink" title="第20章 正则表达式"></a>第20章 正则表达式</h3><pre><code>1.特殊字符   .*[]^{}\+?|()
+2.特殊字符需要转义  转义字符是\  例如\? 代表问号
+3.$定义行尾锚点
+4.^定义新行的行首
+5.点好 用来匹配除换行之外的任意单个字符  必须匹配一个字符
+6.[ch] 匹配c或者匹配h
+7.^[ch] 不匹配ch,但是必须有一个字符
+8.[0-9][a-z][A-Z]
+9.星号表明该字符必须在匹配模式的文本中出现0次或多次。
+10.问号表明前面的字符可以出现0次或1次
+11.加号表明前面的字符可以出现1次或多次，但必须至少出现1次。
+12.花括号允许你为可重复的正则表达式指定一个上限</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/23/Shell%E6%95%99%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Hexo教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

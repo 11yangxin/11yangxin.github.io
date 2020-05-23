@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo教程 | 学习笔记</title>
+  <title>Linux命令行与shell脚本编程大全笔记 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo是什么Hexo是一个博客框架，可以用来搭建自己的博客，再加上github pages就可以在外网上面发布自己的博客，关键是这个都是免费的。Hexo的内容需要使用Markdown来书写。 Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Hexo环境搭建1. 安装node.js 2. 安装git 3. 安装hexo    su">
+  <meta name="description" content="第1章 初识Linux shell第2章 走进shell第3章 基本的bash shell命令1. cd 路径  路径可以是绝对路径，也可以是相对路径，单点符号表示当前目录 双点符号表示当前目录的父目录 2. pwd 显示当前工作目录的路径 3. ls 列出当前目录下的文件和文件夹     -F 可以用来区分文件和目录 目录会在最后面带上&#x2F;     -a 会显示隐藏的文件     -R 递归显示">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo教程">
-<meta property="og:url" content="http://yoursite.com/2020/05/15/Hexo%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:title" content="Linux命令行与shell脚本编程大全笔记">
+<meta property="og:url" content="http://yoursite.com/2020/05/23/Shell%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="Hexo是什么Hexo是一个博客框架，可以用来搭建自己的博客，再加上github pages就可以在外网上面发布自己的博客，关键是这个都是免费的。Hexo的内容需要使用Markdown来书写。 Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Hexo环境搭建1. 安装node.js 2. 安装git 3. 安装hexo    su">
+<meta property="og:description" content="第1章 初识Linux shell第2章 走进shell第3章 基本的bash shell命令1. cd 路径  路径可以是绝对路径，也可以是相对路径，单点符号表示当前目录 双点符号表示当前目录的父目录 2. pwd 显示当前工作目录的路径 3. ls 列出当前目录下的文件和文件夹     -F 可以用来区分文件和目录 目录会在最后面带上&#x2F;     -a 会显示隐藏的文件     -R 递归显示">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-15T03:27:43.000Z">
-<meta property="article:modified_time" content="2020-05-17T13:43:53.000Z">
+<meta property="article:published_time" content="2020-05-23T03:27:43.000Z">
+<meta property="article:modified_time" content="2020-05-23T08:02:09.000Z">
 <meta property="article:author" content="杨昕">
 <meta name="twitter:card" content="summary">
   
@@ -128,79 +128,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hexo教程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Shell教程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo教程
+      Linux命令行与shell脚本编程大全笔记
     </h1>
   
 
         
-        <a href="/2020/05/15/Hexo%E6%95%99%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-05-15T03:27:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
+        <a href="/2020/05/23/Shell%E6%95%99%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-05-23T03:27:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Hexo是什么"><a href="#Hexo是什么" class="headerlink" title="Hexo是什么"></a>Hexo是什么</h3><pre><code>Hexo是一个博客框架，可以用来搭建自己的博客，再加上github pages就可以在外网上面发布自己的博客，关键是这个都是免费的。Hexo的内容需要使用Markdown来书写。 Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。</code></pre><h3 id="Hexo环境搭建"><a href="#Hexo环境搭建" class="headerlink" title="Hexo环境搭建"></a>Hexo环境搭建</h3><pre><code>1. 安装node.js
-2. 安装git
-3. 安装hexo
-   sudo npm install -g hexo-cli</code></pre><h3 id="Hexo建站"><a href="#Hexo建站" class="headerlink" title="Hexo建站"></a>Hexo建站</h3><pre><code>1. 打开终端进入到你想要把站点放入的目录中，执行下面的指令,第三个参数是目录名称
-hexo init &lt;folder&gt;
-2. 进入到刚才创建的目录，执行
-npm install
-最后有提示需要执行以下npm audit fix
-3. 安装图片插件，并且将_config.yml的post_asset_folder设置为true
-npm install hexo-asset-image --save
-4. 安装git插件，
-    npm install hexo-deployer-git --save
-    并且配置你的博客的发布地址,repo的地址格式一定要是如下的格式，
-    deploy:
-          type: git
-          repo: https://github.com/yourName/yourName.github.io.git
-          branch: master</code></pre><h3 id="Hexo写作"><a href="#Hexo写作" class="headerlink" title="Hexo写作"></a>Hexo写作</h3><pre><code>1. 创建一个文章
-hexo new &lt;title&gt;
-2. 在source/_posts/下面会有一个&lt;title&gt;.md和&lt;title&gt;的文件夹，这个文件夹就是放图片的。
-3. 执行
-hexo clean
-hexo generate
-hexo server
-4. 在浏览器中输入http://localhost:4000，就能看到了
-5. 将文章发布的外网
-hexo deploy
-6. 在浏览器中输入yourName.github.io，就能看到你自己的博客了，希望你一起顺利！</code></pre><h3 id="Markdown基本用法"><a href="#Markdown基本用法" class="headerlink" title="Markdown基本用法"></a>Markdown基本用法</h3><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># h1</span><br><span class="line">## h2</span><br><span class="line">### h3</span><br><span class="line">#### h4</span><br><span class="line">##### h5</span><br><span class="line">###### h6</span><br><span class="line">*斜体*</span><br><span class="line">**加粗**</span><br><span class="line">__加粗__</span><br><span class="line">&#96;文本高亮&#96;</span><br><span class="line">~~文本删除~~</span><br><span class="line">代码块前面一行三个\&#96; , 最后一行三个 &#96;</span><br><span class="line">[链接文字](http:&#x2F;&#x2F;www.baidu.com)</span><br><span class="line">![图片说明](1.png)</span><br><span class="line">有序列表 数字加点加空格</span><br><span class="line">无序列表 * </span><br><span class="line">---</span><br><span class="line">表格</span><br><span class="line">| Tables   |      Are      |  Cool |</span><br><span class="line">|----------|:-------------:|------:|</span><br><span class="line">| col 1 is |  left-aligned | $1600 |</span><br><span class="line">| col 2 is |    centered   |   $12 |</span><br><span class="line">| col 3 is | right-aligned |    $1 |</span><br></pre></td></tr></table></figure></code></pre><h4 id="部分显示效果："><a href="#部分显示效果：" class="headerlink" title="部分显示效果："></a>部分显示效果：</h4><p><em>斜体</em><br><strong>加粗</strong><br><strong>加粗</strong><br><code>文本高亮</code><br><del>文本删除</del><br>代码块前面一行三个` , 最后一行三个 ` </p>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th align="center">Are</th>
-<th align="right">Cool</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>col 1 is</td>
-<td align="center">left-aligned</td>
-<td align="right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td align="center">centered</td>
-<td align="right">$12</td>
-</tr>
-<tr>
-<td>col 3 is</td>
-<td align="center">right-aligned</td>
-<td align="right">$1</td>
-</tr>
-</tbody></table>
+        <h3 id="第1章-初识Linux-shell"><a href="#第1章-初识Linux-shell" class="headerlink" title="第1章 初识Linux shell"></a>第1章 初识Linux shell</h3><h3 id="第2章-走进shell"><a href="#第2章-走进shell" class="headerlink" title="第2章 走进shell"></a>第2章 走进shell</h3><h3 id="第3章-基本的bash-shell命令"><a href="#第3章-基本的bash-shell命令" class="headerlink" title="第3章 基本的bash shell命令"></a>第3章 基本的bash shell命令</h3><pre><code>1. cd 路径  路径可以是绝对路径，也可以是相对路径，单点符号表示当前目录 双点符号表示当前目录的父目录
+2. pwd 显示当前工作目录的路径
+3. ls 列出当前目录下的文件和文件夹
+    -F 可以用来区分文件和目录 目录会在最后面带上/
+    -a 会显示隐藏的文件
+    -R 递归显示
+    -l 长列表显示  
+        长列表会显示 文件类型（目录b  文件- 字符型文件c  块设备b） 文件的权限   文件的硬连接总数  文件的属主用户名  文件的属组名  文件的大小  文件的上次修改时间   文件名或目录名 
+        ls -l  名字    那么会显示这个文件或者文件夹的详情
+4. touch test_one  创建空文件
+5. cp source destination 复制文件
+    -i  询问是否覆盖文件
+    -R  递归复制  能复制文件夹下所有文件
+6. ln -s  data_file sl_data_file 连接文件
+7. mv 移动或者重命名
+8. rm 删除文件或目录
+    -f 强制删除 小心使用
+    -i 询问是否删除 需要自己输入y
+    -r 递归删除
+9. mkdir 创建目录
+    -p 创建多层的目录
+10. rmdir 删除空目录
+11. file 查看文件类型
+12. cat 查看文件内容
+    -n  给所有都添加行号
+    -b  给文本添加行业 也就是空行没有
+    -T  去掉文本中的制表符
+13. more 显示一页停下 
+14. less more的更高级  显示一页   支持上下和翻页
+15. tail 显示文最后的部分
+    -n 要显示的行数
+    -f 别的进程在使用的时候  也能查看  能看到实时增加的
+16. head 显示文件的开头部分</code></pre><h3 id="第4章-更多的bash-shell"><a href="#第4章-更多的bash-shell" class="headerlink" title="第4章 更多的bash shell"></a>第4章 更多的bash shell</h3><pre><code>1. ps 探查进程 PID进程号 TIY终端   TIME CMD cpu时间
+    -ef 查看系统上运行的所有进程
+2. kill 结束进程
+3. killall 名字
+4. mount 输出当前系统挂载的设备
+    mount -t type device directory 手动挂载媒体设备
+    type(vfat ntfs iso9660)
+5. df 显示已经挂载的磁盘的使用情况
+6. du 显示某个目录的磁盘使用情况
+7. sort 排序
+    -n 默认按字符排序  -n可以使用数字排序
+    -M 按月排序
+    -r 降序输出
+8. grep 查找
+    grep pattern file
+    -v 反向搜索
+    -n 匹配到的显示  增加行号
+    -c 有多少行符合
+9. gzip 压缩数据
+    gzcat 用来查看压缩过的文本文件的内容
+    gunzip 用来解压缩
+10. tar 归档数据
+    tar function object1 object2
+        function( -A 追加 -c 创建 )
+    tar -cvf test.tar test/ test2/ 打包
+    tar -xvf test.tar 查看包的内容</code></pre><h3 id="第5章-理解shell"><a href="#第5章-理解shell" class="headerlink" title="第5章   理解shell"></a>第5章   理解shell</h3><pre><code>1. which type 可以找到命令的文件所在目录
+    which ps
+    type -a ps
+2. history   查看命令历史记录</code></pre><h3 id="第6章-使用Linux环境变量"><a href="#第6章-使用Linux环境变量" class="headerlink" title="第6章 使用Linux环境变量"></a>第6章 使用Linux环境变量</h3><pre><code>1. printenv 查看全局环境变量
+   printenv HOME</code></pre><h3 id="第11章-构建基本脚本"><a href="#第11章-构建基本脚本" class="headerlink" title="第11章 构建基本脚本"></a>第11章 构建基本脚本</h3><pre><code>1. date 时间
+2. who  谁登陆
+3. echo 输出信息
+4. ` $() 将命令输出赋给变量
+    testing =  `date`
+    testing = $(date)
+5. &gt; 输出重定向
+   date &gt; test6
+    &gt;&gt; 输出重定向并且是追加
+6. &lt; 输入重定向
+   &lt;&lt;  内联输入重定向符号
+7. | 管道
+8. expor 表达式  执行数学计算
+    有些符号可能需要转义
+9. $[] 将表达式的值
+10. bc 能够识别 数字 变量  注释  表达式  编程语句  函数</code></pre><h3 id="第12章-使用结构化命令"><a href="#第12章-使用结构化命令" class="headerlink" title="第12章 使用结构化命令"></a>第12章 使用结构化命令</h3><pre><code>1. if 语句3中形式
+   if command; then
+   fi
 
+   if command; then
+   else
+   fi
+
+   if command; then
+   elif comand; then
+   fi
+2. -eq 相等
+    -ge 大于或等于
+    -gt 大于
+    -le 小于或等于
+    -lt 小于
+    -ne 不等于
+3. 字符串比较
+    =
+    !=
+    &lt;
+    &gt;
+    -n 长度是否非0
+    -z 长度是否为0
+4. 文件比较
+    -d file  file是否存在并且是目录
+    -e file  file是否存在
+    -f file  file是否存在并且是文件
+    -r file  file是否可以读
+    -s file  file是否存在并且非空
+    -w file  file是否存在并且可写
+5. &amp;&amp; || 复合条件
+6. ((expression))
+    ++ -- ! ~ ** &lt;&lt; &gt;&gt; &amp; |  &amp;&amp; ||
+7. case 
+        case $USER in
+        rich | barbarn)
+            echo &quot;&quot;;;
+        testing)
+            echo &quot;&quot;;;
+        *)
+            echo &quot;&quot;;;
+        esac</code></pre><h3 id="第13章-更多的结构化命令"><a href="#第13章-更多的结构化命令" class="headerlink" title="第13章 更多的结构化命令"></a>第13章 更多的结构化命令</h3><pre><code>1. for
+    for var in list
+    do
+    done
+
+    for((i=0;i&lt;10;i++))
+    do
+    done
+2. while
+    while test command
+    do
+    done
+3. break n 跳出多重循环
+4. $# 参数个数
+   参数下标是从0开发的</code></pre><h3 id="第15章-呈现数据"><a href="#第15章-呈现数据" class="headerlink" title="第15章  呈现数据"></a>第15章  呈现数据</h3><h3 id="第16章-控制脚本"><a href="#第16章-控制脚本" class="headerlink" title="第16章  控制脚本"></a>第16章  控制脚本</h3><h3 id="第17章-创建函数"><a href="#第17章-创建函数" class="headerlink" title="第17章  创建函数"></a>第17章  创建函数</h3><pre><code>1. 创建函数
+    function name{
+        commands
+    }
+    name(){
+        commands
+    }
+2. 传递参数
+    #!/bin/bash
+    function func7 {
+        echo $[ $1 * $2]
+    }
+    value=$(func7 $1 $2)
+    echo &quot;the reuslt is $value&quot;</code></pre><h3 id="第18章-图形化桌面环境中的脚本编程"><a href="#第18章-图形化桌面环境中的脚本编程" class="headerlink" title="第18章 图形化桌面环境中的脚本编程"></a>第18章 图形化桌面环境中的脚本编程</h3><h3 id="第19章-初识sed和gawk"><a href="#第19章-初识sed和gawk" class="headerlink" title="第19章 初识sed和gawk"></a>第19章 初识sed和gawk</h3><h3 id="第20章-正则表达式"><a href="#第20章-正则表达式" class="headerlink" title="第20章 正则表达式"></a>第20章 正则表达式</h3><pre><code>1.特殊字符   .*[]^{}\+?|()
+2.特殊字符需要转义  转义字符是\  例如\? 代表问号
+3.$定义行尾锚点
+4.^定义新行的行首
+5.点好 用来匹配除换行之外的任意单个字符  必须匹配一个字符
+6.[ch] 匹配c或者匹配h
+7.^[ch] 不匹配ch,但是必须有一个字符
+8.[0-9][a-z][A-Z]
+9.星号表明该字符必须在匹配模式的文本中出现0次或多次。
+10.问号表明前面的字符可以出现0次或1次
+11.加号表明前面的字符可以出现1次或多次，但必须至少出现1次。
+12.花括号允许你为可重复的正则表达式指定一个上限</code></pre>
       
 
       
@@ -221,15 +325,11 @@ hexo deploy
   
 <nav id="article-nav">
   
-    <a href="/2020/05/23/Shell%E6%95%99%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux命令行与shell脚本编程大全笔记
-        
-      </div>
-    </a>
   
+    <a href="/2020/05/15/Hexo%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo教程</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
